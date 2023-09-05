@@ -2,10 +2,10 @@ import React from 'react'
 
 type Props = {}
 
-function HomeArticleView({}: Props) {
+function ArticleView({}: Props) {
   return (
     <div>ArticleView</div>
   )
 }
 
-export default HomeArticleView
+export default ArticleView

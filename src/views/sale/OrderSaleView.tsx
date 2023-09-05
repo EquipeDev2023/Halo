@@ -2,10 +2,10 @@ import React from 'react'
 
 type Props = {}
 
-function EstimateSaleView({}: Props) {
+function OrderSaleView({}: Props) {
   return (
     <div>EstimateSaleView</div>
   )
 }
 
-export default EstimateSaleView
+export default OrderSaleView

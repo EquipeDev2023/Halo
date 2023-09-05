@@ -2,10 +2,10 @@ import React from 'react'
 
 type Props = {}
 
-function IndentPurchaseView({}: Props) {
+function OrderPurchaseView({}: Props) {
   return (
     <div>IndentPurchaseView</div>
   )
 }
 
-export default IndentPurchaseView
+export default OrderPurchaseView

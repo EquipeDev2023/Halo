@@ -14,29 +14,28 @@ const LeftSidebar = ({ collapsed }: any) => {
                 <MenuItem icon={<AiOutlineDashboard />} component={<Link to="/"/>}>Tableau de bord</MenuItem>
 
                 <SubMenu icon={<AiOutlineContacts />} label="Client">
-                    <MenuItem icon={<AiOutlineUnorderedList />} component={<Link to="client"/>}> Liste</MenuItem>
-                    <MenuItem icon={<AiOutlineSolution />} component={<Link to="client/facture"/>}> Facture</MenuItem>
-                    <MenuItem icon={<AiOutlineCreditCard />} component={<Link to="client/paiement"/>}> Paiement</MenuItem>
+                    <MenuItem icon={<AiOutlineUnorderedList />} component={<Link to="customer"/>}> Liste</MenuItem>
+                    <MenuItem icon={<AiOutlineSolution />} component={<Link to="customer/invoice"/>}> Facture</MenuItem>
+                    <MenuItem icon={<AiOutlineCreditCard />} component={<Link to="customer/payment"/>}> Paiement</MenuItem>
                 </SubMenu>
                 <SubMenu icon={<AiOutlineContacts />} label="Fournisseur">
-                    <MenuItem icon={<AiOutlineUnorderedList />} component={<Link to="fournisseur"/>}> Liste</MenuItem>
-                    <MenuItem icon={<AiOutlineSolution />} component={<Link to="fournisseur/paiement"/>}> Facture</MenuItem>
-                    <MenuItem icon={<AiOutlineCreditCard />} component={<Link to="fournisseur/paiement"/>}> Paiement</MenuItem>
+                    <MenuItem icon={<AiOutlineUnorderedList />} component={<Link to="supplier"/>}> Liste</MenuItem>
+                    <MenuItem icon={<AiOutlineSolution />} component={<Link to="supplier/invoice"/>}> Facture</MenuItem>
+                    <MenuItem icon={<AiOutlineCreditCard />} component={<Link to="supplier/payment"/>}> Paiement</MenuItem>
                 </SubMenu>
 
                 <MenuItem icon={<AiOutlineFileText />} component={<Link to="article"/>}> Article</MenuItem>
 
                 <SubMenu icon={<AiOutlineShoppingCart />} label="Vente">
-                    <MenuItem icon={<AiOutlineFileDone />} component={<Link to="vente/devis"/>}> Devis</MenuItem>
-                    <MenuItem icon={<AiOutlineFileDone />} component={<Link to="vente/commande"/>}> Commande</MenuItem>
-                    <MenuItem icon={<AiOutlineFileDone />} component={<Link to="vente/livraison"/>}> Livraison</MenuItem>
-                    <MenuItem icon={<AiOutlineFileDone />} component={<Link to="vente/facture"/>}> Facture</MenuItem>
+                    <MenuItem icon={<AiOutlineFileDone />} component={<Link to="sale"/>}> Commande</MenuItem>
+                    <MenuItem icon={<AiOutlineFileDone />} component={<Link to="sale/delivery"/>}> Livraison</MenuItem>
+                    <MenuItem icon={<AiOutlineFileDone />} component={<Link to="sale/invoice"/>}> Facture</MenuItem>
                 </SubMenu>
 
                 <SubMenu icon={<AiOutlineShoppingCart />} label="Achat">
-                    <MenuItem icon={<AiOutlineFileDone />} component={<Link to="achat/commande"/>}> Commande</MenuItem>
-                    <MenuItem icon={<AiOutlineFileDone />} component={<Link to="achat/reception"/>}> Réception</MenuItem>
-                    <MenuItem icon={<AiOutlineFileDone />} component={<Link to="achat/facture"/>}> Facture</MenuItem>
+                    <MenuItem icon={<AiOutlineFileDone />} component={<Link to="puchase"/>}> Commande</MenuItem>
+                    <MenuItem icon={<AiOutlineFileDone />} component={<Link to="purchase/reception"/>}> Réception</MenuItem>
+                    <MenuItem icon={<AiOutlineFileDone />} component={<Link to="purchase/facture"/>}> Facture</MenuItem>
                 </SubMenu>
 
                 <SubMenu icon={<AiOutlineDatabase />} label="Stock">
@@ -50,12 +49,12 @@ const LeftSidebar = ({ collapsed }: any) => {
                     <MenuItem icon={<AiOutlineUnorderedList />} component={<Link to="caisse/registre"/>}> Registre</MenuItem>
                 </SubMenu>
                 <SubMenu icon={<AiOutlineSetting />} label="Configuration">
-                    <MenuItem icon={<AiOutlineInfoCircle />} component={<Link to="config"/>}> Général</MenuItem>
-                    <MenuItem icon={<AiOutlineUser />} component={<Link to="config/user"/>}> Utilisateur</MenuItem>
-                    <MenuItem icon={<AiOutlineUnlock /> } component={<Link to="config/permission"/>}> Droit & Permission</MenuItem>
-                    <MenuItem icon={<AiOutlineCalculator />} component={<Link to="config/unite"/>}> Unité</MenuItem>
-                    <MenuItem icon={<AiOutlineTag />} component={<Link to="config/famille"/>}> Famille</MenuItem>
-                    <MenuItem icon={<AiOutlineCreditCard />} component={<Link to="config/paiement"/>}> Mode de paiement</MenuItem>
+                    <MenuItem icon={<AiOutlineInfoCircle />} component={<Link to="configuration"/>}> Général</MenuItem>
+                    <MenuItem icon={<AiOutlineUser />} component={<Link to="configuration/user"/>}> Utilisateur</MenuItem>
+                    <MenuItem icon={<AiOutlineUnlock /> } component={<Link to="configuration/permission"/>}> Droit & Permission</MenuItem>
+                    <MenuItem icon={<AiOutlineCalculator />} component={<Link to="configuration/unit"/>}> Unité</MenuItem>
+                    <MenuItem icon={<AiOutlineTag />} component={<Link to="configuration/itemfamily"/>}> Famille</MenuItem>
+                    <MenuItem icon={<AiOutlineCreditCard />} component={<Link to="configuration/paiement"/>}> Mode de paiement</MenuItem>
                 </SubMenu>
             </Menu>
         </Sidebar>

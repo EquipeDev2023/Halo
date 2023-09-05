@@ -2,10 +2,10 @@ import React from 'react'
 
 type Props = {}
 
-function HomeSupplierView({}: Props) {
+function SupplierView({}: Props) {
   return (
     <div>HomeSupplierView</div>
   )
 }
 
-export default HomeSupplierView
+export default SupplierView
