@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Badge, Button, ButtonGroup, Card, Col, Form, Modal, Row, Table } from 'react-bootstrap'
-import { AiOutlinePlus, AiOutlineEye, AiOutlineEdit, AiOutlineDelete, AiOutlineClose, AiOutlineSave, AiOutlinePrinter, AiOutlineCheck } from "react-icons/ai"
+import { Badge, Button, ButtonGroup, Card, Col, Dropdown, Form, Modal, Row, Table } from 'react-bootstrap'
+import { AiOutlinePlus, AiOutlineEye, AiOutlineEdit, AiOutlineDelete, AiOutlineClose, AiOutlineSave, AiOutlinePrinter, AiOutlineCheck, AiOutlineMenu, AiOutlineExport } from "react-icons/ai"
 
 type Props = {}
 
@@ -22,12 +22,19 @@ export default function ArticleView({ }: Props) {
 				<Card.Header>
 					<div className="d-flex align-items-center justify-content-between mb-0">
 						<h2 className="h2 mb-0 ">Article</h2>
-						<ButtonGroup size='sm'>
-							<AddModal />
-							<ShowModal />
-							<EditModal />
-							<DeleteModal />
-						</ButtonGroup>
+						<Dropdown >
+							<Dropdown.Toggle variant="primary" id="dropdown-basic" size='sm'>
+								<AiOutlineMenu /> Options
+							</Dropdown.Toggle>
+
+							<Dropdown.Menu>
+								<AddModal/>
+								<Dropdown.Item>
+									<AiOutlineExport />  Exporter en csv
+								</Dropdown.Item>
+								<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+							</Dropdown.Menu>
+						</Dropdown>
 
 					</div>
 				</Card.Header>
@@ -43,25 +50,11 @@ export default function ArticleView({ }: Props) {
 								<th>Unité</th>
 								<th>P.V</th>
 								<th>Statut</th>
+								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td key={1} className="align-middle">
-									<input
-										type="checkbox"
-										checked={(selectedRow == 1) ? true : false}
-										onChange={(e) => handleRowSelect(e, 1)}
-									/>
-								</td>
-								<td className="align-middle">1</td>
-								<td className="align-middle">Article 1</td>
-								<td className="align-middle">ASDSF</td>
-								<td className="align-middle">Piece</td>
-								<td className="align-middle">0.0</td>
-								<td className="align-middle"><Badge bg="success">Actif</Badge></td>
 
-							</tr>
 
 							<tr>
 								<td key={2} className="align-middle">
@@ -77,6 +70,13 @@ export default function ArticleView({ }: Props) {
 								<td className="align-middle">Piece</td>
 								<td className="align-middle">0.0</td>
 								<td className="align-middle"><Badge bg="success">Actif</Badge></td>
+								<td>
+									<ButtonGroup size='sm'>
+										<ShowModal />
+										<EditModal />
+										<DeleteModal />
+									</ButtonGroup>
+								</td>
 
 							</tr>
 
@@ -85,6 +85,8 @@ export default function ArticleView({ }: Props) {
 					</Table>
 				</Card.Body>
 			</Card>
+
+
 		</>
 
 	)
@@ -98,9 +100,9 @@ function AddModal() {
 
 	return (
 		<>
-			<Button variant='success' onClick={handleShow} >
-				<AiOutlinePlus />
-			</Button>
+			<Dropdown.Item onClick={handleShow}>
+				<AiOutlinePlus />  Ajouter
+			</Dropdown.Item>
 
 			<Modal show={show} onHide={handleClose} size='lg'>
 				<Modal.Header closeButton>
