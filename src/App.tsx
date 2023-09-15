@@ -3,68 +3,103 @@ import LeftSidebar from "./components/LeftSidebar";
 import Topbar from "./components/Topbar";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
 import LoginView from "./views/LoginView";
+
+
+import { PartnerForm, PartnerInfo, PartnerList } from "./views/partner/PartnerView";
+import { ArticleForm, ArticleInfo, ArticleList } from "./views/article/ArticleView";
 import DashboardView from "./views/DashboardView";
-import GeneralConfigView from "./views/cofiguration/GeneralConfigView";
-import UserConfigView from "./views/cofiguration/UserConfigView";
-import PermissionConfigView from "./views/cofiguration/PermissionConfigView";
-import UnitConfigView from "./views/cofiguration/UnitConfigView";
-import ItemFamilyConfigView from "./views/cofiguration/ItemFamilyConfigView";
-import PaymentConfigView from "./views/cofiguration/PaymentConfigView";
-import CustomerView from "./views/customer/CustomerView";
-import InvoiceCustomerView from "./views/customer/InvoiceCustomerView";
-import SupplierView from "./views/supplier/SupplierView";
-import InvoiceSupplierView from "./views/supplier/InvoiceSupplierView";
-import PaymentSupplierView from "./views/supplier/PaymentSupplierView";
-import ArticleView from "./views/article/ArticleView";
-import OrderSaleView from "./views/sale/OrderSaleView";
-import InvoiceSaleView from "./views/sale/InvoiceSaleView";
-import DeliverySaleView from "./views/sale/DeliverySaleView";
-import OrderPurchaseView from "./views/purchase/OrderPurchaseView";
-import ReceptionPurchasseView from "./views/purchase/ReceptionPurchasseView";
+import { InvoiceForm, InvoiceInfo, InvoiceList } from "./views/invoice/InvoiceView";
+import { OrderForm, OrderInfo, OrderList } from "./views/order/OrderView";
+import { ItemCategoryForm, ItemCategoryInfo, ItemCategoryList } from "./views/itemCategory/ItemCategoryView";
+import { PaymentForm, PaymentInfo, PaymentList } from "./views/payment/PaymentView";
+import { PaymentModeForm, PaymentModeInfo, PaymentModeList } from "./views/paymentMode/PaymentModeView";
+import { UnitForm, UnitInfo, UnitList } from "./views/unit/UnitView";
+import { ShipmentForm, ShipmentInfo, ShipmentList } from "./views/shipment/ShipmentView";
+import { UserForm, UserInfo, UserList } from "./views/user/UserView";
 
 function App() {
 	return (
 		<Routes>
 			<Route path="/" element={<Layout />}>
 				<Route index element={<DashboardView/>}/>
-				<Route path="client" element={<DashboardView/>}/>
 
-				<Route path="customer">
-					<Route index element={<CustomerView/>}/>
-					<Route path="invoice" element={<InvoiceCustomerView/>}/>
-					<Route path="payment" element={<PaymentConfigView/>}/>
+				<Route path="partner">
+					<Route index element={<PartnerList/>}/>
+					<Route path="add" element={<PartnerForm/>}/>
+					<Route path=":id" element={<PartnerInfo/>}/>
+					<Route path="edit/:id" element={<PartnerForm/>}/>
 				</Route>
 
-				<Route path="supplier">
-					<Route index element={<SupplierView/>}/>
-					<Route path="invoice" element={<InvoiceSupplierView/>}/>
-					<Route path="payment" element={<PaymentSupplierView/>}/>
+				<Route path="article">
+					<Route index element={<ArticleList/>}/>
+					<Route path="add" element={<ArticleForm/>}/>
+					<Route path=":id" element={<ArticleInfo/>}/>
+					<Route path="edit/:id" element={<ArticleForm/>}/>
 				</Route>
 
-				<Route path="article" element={<ArticleView/>}/>
-
-				<Route path="sale">
-					<Route index element={<OrderSaleView/>}/>
-					<Route path="delivery" element={<DeliverySaleView/>}/>
-					<Route path="invoice" element={<InvoiceSaleView/>}/>
-				</Route>
-				
-				<Route path="purchase">
-					<Route index element={<OrderPurchaseView/>}/>
-					<Route path="delivery" element={<ReceptionPurchasseView/>}/>
-					<Route path="invoice" element={<InvoiceSaleView/>}/>
+				<Route path="order">
+					<Route index element={<OrderList/>}/>
+					<Route path="add" element={<OrderForm/>}/>
+					<Route path="edit/:id" element={<OrderForm/>}/>
+					<Route path=":id" element={<OrderInfo/>}/>
 				</Route>
 
-				<Route path="configuration">
-					<Route index element={<GeneralConfigView/>}/>
-					<Route path="user" element={<UserConfigView/>}/>
-					<Route path="permission" element={<PermissionConfigView/>}/>
-					<Route path="unit" element={<UnitConfigView/>}/>
-					<Route path="item-family" element={<ItemFamilyConfigView/>}/>
-					<Route path="paiement" element={<PaymentConfigView/>}/>
+				<Route path="shipment">
+					<Route index element={<ShipmentList/>}/>
+					<Route path="edit/:id" element={<ShipmentForm/>}/>
+					<Route path=":id" element={<ShipmentInfo/>}/>
 				</Route>
 
-				
+				<Route path="invoice">
+					<Route index element={<InvoiceList/>}/>
+					<Route path="edit/:id" element={<InvoiceForm/>}/>
+					<Route path=":id" element={<InvoiceInfo/>}/>
+				</Route>
+
+				<Route path="payment">
+					<Route index element={<PaymentList/>}/>
+					<Route path="edit/:id" element={<PaymentForm/>}/>
+					<Route path=":id" element={<PaymentInfo/>}/>
+				</Route>
+
+				<Route path="mouvement" element={<InvoiceForm/>}/>
+
+				<Route path="approvisionnement" element={<InvoiceForm/>}/>
+
+				<Route path="inventory">
+					<Route index element={<InvoiceList/>}/>
+					<Route path="edit/:id" element={<InvoiceForm/>}/>
+					<Route path=":id" element={<InvoiceInfo/>}/>
+				</Route>
+
+				<Route path="user">
+					<Route index element={<UserList/>}/>
+					<Route path="add" element={<UserForm/>}/>
+					<Route path="edit/:id" element={<UserForm/>}/>
+					<Route path=":id" element={<UserInfo/>}/>
+				</Route>
+
+				<Route path="unit">
+					<Route index element={<UnitList/>}/>
+					
+					<Route path="add" element={<UnitForm/>}/>
+					<Route path="edit/:id" element={<UnitForm/>}/>
+					<Route path=":id" element={<UnitInfo/>}/>
+				</Route>
+
+				<Route path="itemCategory">
+					<Route index element={<ItemCategoryList/>}/>
+					<Route path="add" element={<ItemCategoryForm/>}/>
+					<Route path="edit/:id" element={<ItemCategoryForm/>}/>
+					<Route path=":id" element={<ItemCategoryInfo/>}/>
+				</Route>
+
+				<Route path="paymentMode">
+					<Route index element={<PaymentModeList/>}/>
+					<Route path="add" element={<PaymentModeForm/>}/>
+					<Route path="edit/:id" element={<PaymentModeForm/>}/>
+					<Route path=":id" element={<PaymentModeInfo/>}/>
+				</Route>
 
 			</Route>
 			<Route path="login" element={<LoginView />}>
